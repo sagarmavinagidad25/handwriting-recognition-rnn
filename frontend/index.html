@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Handwriting Recognition</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>AI Handwriting Recognition</h1>
+            <p>Write a word below (leave a small gap between letters) and let the CNN+LSTM model predict it.</p>
+        </header>
+
+        <main>
+            <div class="toolbar">
+                <div class="tool-group">
+                    <label for="thickness">Marker Thickness:</label>
+                    <input type="range" id="thickness" min="5" max="40" value="18">
+                </div>
+                <div class="tool-group">
+                    <label for="fileInput" class="custom-file-upload">Upload Image</label>
+                    <input type="file" id="fileInput" accept="image/*" style="display: none;">
+                </div>
+            </div>
+
+            <div class="canvas-container">
+                <!-- Laptop-sized canvas -->
+                <canvas id="drawingCanvas" width="800" height="400"></canvas>
+                <div class="controls">
+                    <button id="clearBtn" class="btn secondary">Clear Canvas</button>
+                    <button id="predictBtn" class="btn primary">Predict Pattern</button>
+                </div>
+            </div>
+
+            <div class="result-container" id="resultContainer" style="display: none;">
+                <h2>Prediction Result:</h2>
+                <div id="predictionBadge" class="prediction-badge">-</div>
+                <div id="confidenceList" class="confidence-list"></div>
+            </div>
+            <div id="errorText" class="error-text"></div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
