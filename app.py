@@ -9,8 +9,6 @@ def home():
 
 @app.route('/predict', methods=['POST'])
 def predict():
-    data = request.get_json()
-
     return jsonify({
         "prediction": "S",
         "confidence": 0.98
