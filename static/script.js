@@ -124,8 +124,7 @@ predictBtn.addEventListener('click', async () => {
     try {
         const dataURL = canvas.toDataURL('image/png');
         
-        const response = await fetch('http://127.0.0.1:5000/predict', {
-            method: 'POST',
+const response = await fetch('/predict', {            method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
