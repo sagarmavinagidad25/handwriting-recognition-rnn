@@ -1,5 +1,4 @@
-from flask import Flask, render_template, jsonify
-
+from flask import Flask, render_template, request, jsonify
 import os
 
 app = Flask(__name__)
@@ -10,8 +9,11 @@ def home():
 
 @app.route('/predict', methods=['POST'])
 def predict():
+    data = request.get_json()
+
     return jsonify({
-        "prediction": "S"
+        "prediction": "S",
+        "confidence": 0.98
     })
 
 if __name__ == '__main__':
